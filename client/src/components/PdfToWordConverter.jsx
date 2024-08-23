@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { ThreeCircles } from "react-loader-spinner";
+import { Hourglass } from "react-loader-spinner";
+import FileInput from "./FileInput";
+import ConvertButton from "./ConvertButton";
+import DownloadLink from "./DownloadLink";
 
 const PdfToWordConverter = () => {
   const [pdfFile, setPdfFile] = useState(null);
@@ -57,50 +60,32 @@ const PdfToWordConverter = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-slate-900">
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-200 text-gray-800 dark:bg-gray-900 dark:text-white">
       {loading ? (
         <div className="flex flex-col justify-center items-center h-full">
-          <ThreeCircles
+          <Hourglass
             visible={true}
             height="100"
             width="100"
-            color="#4fa94d"
             ariaLabel="three-circles-loading"
             wrapperStyle={{}}
             wrapperClass=""
+            colors={["#ce6c30", "#edb672"]}
           />
-          <p className="text-white mt-4">
-            Tiempo de carga: {elapsedTime} segundos
+          <p className="text-slate-900 mt-10">
+            Convirtiendo, Espere un momento...{" "}
           </p>
         </div>
       ) : (
         <>
-          <h1 className="text-3xl font-bold mb-6 text-white">
+          <h1 className="text-3xl font-bold mb-2 text-black">
             Convertir PDF a Word
           </h1>
-          <input
-            type="file"
-            accept=".pdf"
-            onChange={handleFileChange}
-            className="mb-4 p-2 border border-gray-300 rounded"
-          />
+
+          <FileInput onFileChange={handleFileChange} />
           {error && <p className="text-red-500 mb-4">{error}</p>}
-          <button
-            onClick={handleConvert}
-            disabled={loading}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mb-4"
-          >
-            {loading ? "Convirtiendo..." : "Convertir a Word"}
-          </button>
-          {convertedFile && (
-            <a
-              href={convertedFile}
-              download="converted.docx"
-              className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
-            >
-              Descargar archivo Word
-            </a>
-          )}
+          <ConvertButton onClick={handleConvert} loading={loading} />
+          {convertedFile && <DownloadLink fileURL={convertedFile} />}
         </>
       )}
     </div>
