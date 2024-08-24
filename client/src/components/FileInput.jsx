@@ -6,7 +6,7 @@ const FileInput = ({ onFileChange }) => {
       type="file"
       accept=".pdf"
       onChange={onFileChange}
-      className="mb-4 p-2 border border-gray-300 rounded"
+      className="mb-4 p-2 border border-gray-500 rounded bg-[#e9e7e7] dark:bg-gray-900 dark:border-gray-100 transition-colors duration-300"
     />
   );
 };

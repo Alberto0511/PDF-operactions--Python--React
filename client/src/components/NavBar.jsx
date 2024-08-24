@@ -35,7 +35,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="bg-gray-300 text-gray-800 dark:bg-gray-800 dark:text-white shadow-lg py-4 px-8 transition-colors duration-300">
+    <nav className="bg-[#D32F2F] text-gray-800 dark:bg-gray-800 dark:text-white shadow-lg py-4 px-8 transition-colors duration-300">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="text-2xl font-bold flex items-center">
           <img
@@ -46,7 +46,7 @@ const NavBar = () => {
         </div>
 
         <div className="relative">
-          <button onClick={toggleMenu} className="text-lg flex items-center">
+          <button onClick={toggleMenu} className="text-white font-bold text-lg flex items-center">
             Operaciones
             {showMenu ? (
               <IoIosArrowUp className="w-5 h-5 ml-2 transition-transform duration-300" />
@@ -85,12 +85,12 @@ const NavBar = () => {
         >
           {darkMode ? (
             <GiSun
-              style={{ color: "#F59E0B" }}
+              style={{ color: "#EE9B00" }}
               className="text-4xl transition-transform duration-300"
             />
           ) : (
             <GiEvilMoon
-              style={{ color: "#1F2937" }}
+              style={{ color: "#ffffff" }}
               className="text-4xl transition-transform duration-300"
             />
           )}

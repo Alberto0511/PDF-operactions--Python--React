@@ -60,7 +60,7 @@ const PdfToWordConverter = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-200 text-gray-800 dark:bg-gray-900 dark:text-white">
+    <div className="flex flex-col items-center min-h-screen pt-16 bg-[#e9e7e7] text-gray-800 dark:bg-gray-900 dark:text-white transition-colors duration-300">
       {loading ? (
         <div className="flex flex-col justify-center items-center h-full">
           <Hourglass
@@ -70,17 +70,15 @@ const PdfToWordConverter = () => {
             ariaLabel="three-circles-loading"
             wrapperStyle={{}}
             wrapperClass=""
-            colors={["#ce6c30", "#edb672"]}
+            colors={["#D32F2F", "#E53935"]}
           />
-          <p className="text-slate-900 mt-10">
-            Convirtiendo, Espere un momento...{" "}
+          <p className="text-2xl font-bold  text-gray-800 dark:text-white transition-colors duration-300 mt-10">
+            Convirtiendo, Espere un momento...
           </p>
         </div>
       ) : (
         <>
-          <h1 className="text-3xl font-bold mb-2 text-black">
-            Convertir PDF a Word
-          </h1>
+          <h1 className="text-[#212121] text-3xl dark:text-[#E0E0E0] transition-colors duration-300 font-bold mb-5">Convertir PDF a Word</h1>
 
           <FileInput onFileChange={handleFileChange} />
           {error && <p className="text-red-500 mb-4">{error}</p>}

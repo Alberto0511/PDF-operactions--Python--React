@@ -56,3 +56,4 @@ async def pdf_to_word(file: UploadFile = File(...)):
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error de conversión: {e}")
+
