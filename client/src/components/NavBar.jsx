@@ -2,22 +2,19 @@ import React, { useState, useEffect } from "react";
 import { GiSun } from "react-icons/gi";
 import { GiEvilMoon } from "react-icons/gi";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
-
+import PdfToWordConverter from "./PdfToWordConverter";
 const NavBar = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
 
-  // Cargar el estado del modo oscuro desde localStorage al inicializar el componente
-  useEffect(() => {
+  useEffect(() => {// Cargar el estado del modo oscuro desde localStorage al inicializar el componente
     const savedDarkMode = localStorage.getItem("darkMode") === "true";
     setDarkMode(savedDarkMode);
     if (savedDarkMode) {
       document.documentElement.classList.add("dark");
     }
   }, []);
-
-  // Alternar el modo oscuro y aplicar la clase al elemento raíz
-  const toggleDarkMode = () => {
+  const toggleDarkMode = () => {   // Alternar el modo oscuro y aplicar la clase al elemento raíz
     const newDarkMode = !darkMode;
     setDarkMode(newDarkMode);
     if (newDarkMode) {
@@ -25,12 +22,9 @@ const NavBar = () => {
     } else {
       document.documentElement.classList.remove("dark");
     }
-    // Guardar el estado en localStorage
-    localStorage.setItem("darkMode", newDarkMode.toString());
+    localStorage.setItem("darkMode", newDarkMode.toString());    // Guardar el estado en localStorage
   };
-
-  // Alternar la visibilidad del menú desplegable
-  const toggleMenu = () => {
+  const toggleMenu = () => {  // Alternar la visibilidad del menú desplegable
     setShowMenu(!showMenu);
   };
 

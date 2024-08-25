@@ -2,6 +2,7 @@ import PdfToWordConverter from "./components/PdfToWordConverter";
 import { CirclesWithBar } from "react-loader-spinner";
 import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
+
 const App = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
